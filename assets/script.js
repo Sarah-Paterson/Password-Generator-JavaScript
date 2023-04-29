@@ -15,80 +15,95 @@ generateBtn.addEventListener("click", windowPrompt);
 
 // all code above provided by course
 
+
 // first pop up when clicking on generate password
 function windowPrompt() {
   if (confirm("Let's create a new password! Please answer a few prompts to set the parameters for your new password.")) {
-    //lenSelect();
+    lenSelect();
   } else {
-    // window closes
+    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
   }
 }
 
+// password length selection
+function lenSelect() {
+  let lenght = {
+    usrLen : this.usrLen
+  }
+  let usrLen = prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14");
+  if (isNaN || usrLen < 8 || usrLen > 128) {
+    retryLen();
+  } else if (ursLen > 7 && usrLen < 129) {
+    upCase();
+  } else {
+    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+  }
+}
 
-// function lenSelect() {
-//   let number = prompt("Please enter how many characters your new password will have. Please write a whole number between 8 - 128.", "14");
-//   if (isNaN || number < 8 || number > 128) {
-  // 
-//   } else if () {
+// if lenght selection is incorect
+function retryLen() {
+  if (confirm("Please select a whole number between 8 and 128. If you would like to cancel, press \"cancel\".")) {
+    lenSelect();
+  } else {
+    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+  }
+}
 
-//   } else {
-
-//   }
-// }
-
-// function retryLen() {
-  // if (confirm("Please select a number between 8 and 128. If you would like to cancel, press \"cancel\".")) {
-    // lenSelect()
-  //} else {
-    // window closes
-  //}
-//}
-
+// uppercase yes or no
 function upCase() {
+  // let upC = input?
   if (confirm("Would you like uppercase letters in your password?")) {
-    // lowCase ()
+    lowCase ();
   } else {
-    // lowCase ()
+    lowCase ();
   }
 }
 
+// lowercase yes or no
 function lowCase() {
+  // let lowC = input?
   if (confirm("Would you like lowercase letters in your password?")) {
-    // number()
+    number();
   } else {
-    // needRetry()
+    needRetryC();
   }
 }
 
-// functuion needRetryC() {
-  // if (lowCase || upCase) {
-    // number()
-  //} else {
-    // retry()
-  //}
-//}
+// check if retry is needed after upper and lowercase
+function needRetryC() {
+  if (upCase) {
+    number();
+  } else {
+    retryC();
+  }
+}
 
-// function retryC() {
-  //if (confirm("Please select \"okay\" to either uppercase or lowercase characters. Select \"okay\" to go reselect uppercase and lowercase. If you would like to cancel, press \"cancel\".")) {
-    // upCase()
-  //} else {
-    // close window
-  //}
-//}
+// ask to retry the uppercase and lowercase functions
+function retryC() {
+  if (confirm("Please select \"okay\" to either uppercase or lowercase characters. Select \"okay\" to go reselect uppercase and lowercase. If you would like to cancel, press \"cancel\".")) {
+    upCase();
+  } else {
+    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+  }
+}
 
+// numbers yes or no
 function number() {
+  // let num = input?
   if (confirm("Would you like numbers in your password?")) {
-    // specials()
+    specials();
   } else {
-    // specials()
+    specials();
   }
 }
 
+// specials yes or no
 function specials() {
+  //let special = imput?
   if (confirm("Would you like special characters in your password?")) {
-    // lowcase ()
+    lowcase ();
   } else {
-    // lowcase ()
+    lowcase ();
   }
 }
 
