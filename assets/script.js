@@ -51,8 +51,11 @@ function retryLen() {
 
 // uppercase yes or no
 function upCase() {
-  // let upC = input?
+  let upC = {
+    usrUpC : this.usrUpC
+  }
   if (confirm("Would you like uppercase letters in your password?")) {
+    usrUpC = true
     lowCase ();
   } else {
     lowCase ();
@@ -61,8 +64,11 @@ function upCase() {
 
 // lowercase yes or no
 function lowCase() {
-  // let lowC = input?
+  let lowC = {
+    usrLowC : this.usrLowC
+  }
   if (confirm("Would you like lowercase letters in your password?")) {
+    usrLowC = true
     number();
   } else {
     needRetryC();
