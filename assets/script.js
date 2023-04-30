@@ -27,13 +27,12 @@ function windowPrompt() {
 
 // password length selection
 function lenSelect() {
-  let lenght = {
-    usrLen : this.usrLen
-  }
+  // how to store the user imput information for later??
   let usrLen = prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14");
-  if (isNaN || usrLen < 8 || usrLen > 128) {
+  // how to add not a number??
+  if (usrLen < 8 || usrLen > 128) {
     retryLen();
-  } else if (ursLen > 7 && usrLen < 129) {
+  } else if (usrLen > 7 && usrLen < 129) {
     upCase();
   } else {
     alert("You\'ve chosen to cancel. Please refresh your page to restart.");
@@ -51,9 +50,6 @@ function retryLen() {
 
 // uppercase yes or no
 function upCase() {
-  let upC = {
-    usrUpC : this.usrUpC
-  }
   if (confirm("Would you like uppercase letters in your password?")) {
     usrUpC = true
     lowCase ();
@@ -64,9 +60,6 @@ function upCase() {
 
 // lowercase yes or no
 function lowCase() {
-  let lowC = {
-    usrLowC : this.usrLowC
-  }
   if (confirm("Would you like lowercase letters in your password?")) {
     usrLowC = true
     number();
@@ -77,7 +70,7 @@ function lowCase() {
 
 // check if retry is needed after upper and lowercase
 function needRetryC() {
-  if (upCase) {
+  if (upCase()) {
     number();
   } else {
     retryC();
@@ -85,6 +78,7 @@ function needRetryC() {
 }
 
 // ask to retry the uppercase and lowercase functions
+// why isn't this working??
 function retryC() {
   if (confirm("Please select \"okay\" to either uppercase or lowercase characters. Select \"okay\" to go reselect uppercase and lowercase. If you would like to cancel, press \"cancel\".")) {
     upCase();
@@ -99,12 +93,12 @@ function number() {
   if (confirm("Would you like numbers in your password?")) {
     specials();
   } else {
-    specials();
+    specialC();
   }
 }
 
 // specials yes or no
-function specials() {
+function specialC() {
   //let special = imput?
   if (confirm("Would you like special characters in your password?")) {
     lowcase ();
@@ -113,6 +107,11 @@ function specials() {
   }
 }
 
+let uperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let sepcials = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/'", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
+let password = [];
 
 
 
