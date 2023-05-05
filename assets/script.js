@@ -15,6 +15,13 @@ generateBtn.addEventListener("click", windowPrompt);
 
 // all code above provided by course
 
+// array of options for the passsword and empty arrays for password
+let uperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let sepcials = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/'", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
+let password = [];
+let availChar = [];
 
 // first pop up when clicking on generate password
 function windowPrompt() {
@@ -30,16 +37,16 @@ function lenSelect() {
   // how to store the user imput information for later??
   let usrLen = parseInt(prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14"));
   if (Number.isNaN(usrLen)) {
-    // retryLen();
+    retryLen();
   }
 
   if (usrLen < 8 || usrLen > 128) {
-    // retryLen();
+    retryLen();
   }
   
   if (usrLen > 7 && usrLen < 129) {
     // upCase();
-    usrChoice();
+    usrPass();
   } else {
     alert("You\'ve chosen to cancel. Please refresh your page to restart.");
   }
@@ -54,9 +61,8 @@ function retryLen() {
   }
 }
 
-// maybe put it all as their own variables??
-// maybe in their own function??
-let usrChoice = function() {
+// user choicses and password creation in this function
+let usrPass = function() {
   // uppercase
   let usrUpC = window.confirm("Would you like uppercase letters in your password?");
   // lowercase
@@ -66,7 +72,63 @@ let usrChoice = function() {
   // special characters
   let usrSpec = window.confirm("Would you like special characters in your password?");
 
-  if (usrUpC || usrLowC || usrNumb)
+  if (usrUpC || usrLowC || usrNumb || usrSpec) {
+    if (usrUpC) {
+      availChar = [...uperCase];
+
+    } else if (usrUpC && usrLowC) {
+      availChar = [...uperCase, ...lowerCase];
+
+    } else if (usrUpC && usrLowC && usrNumb) {
+      availChar = [...uperCase, ...lowerCase, ...numbers];
+
+    } else if (usrUpC && usrLowC && usrNumb && usrSpec) {
+      availChar = [...uperCase, ...lowerCase, ...numbers, ...sepcials];
+
+    } else if (usrUpc && usrNumb && usrSpec) {
+      availChar = [...uperCase, ...numbers, ...sepcials];
+
+    } else if (usrUpC && usrNumb) {
+      availChar = [...uperCase, ...numbers];
+
+    } else if (usrUpC && usrSpec) {
+      availChar = [...uperCase, ...sepcials];
+
+    } else if (usrLowC) {
+      availChar = [...lowerCase];
+
+    } else if (usrLowC && usrNumb) {
+      availChar = [...lowerCase, ...numbers];
+
+    } else if (usrLowC && usrNumb && usrSpec) {
+      availChar = [...lowerCase, ...numbers, ...sepcials];
+
+    } else if (usrLowC && usrSpec) {
+      availChar = [...lowerCase, ...sepcials];
+
+    } else if (usrNumb) {
+      availChar = [...numbers];
+
+    } else if (usrNumb && usrSpec) {
+      availChar = [...numbers, ...sepcials];
+
+    } else if (usrSpec) {
+      availChar = [...sepcials];
+
+    }
+  } else {
+    retryC();
+  }
+
+  function retryC() {
+    if (confirm("Please select \"okay\" to at least one of the prompts. Select \"okay\" to reselect. If you would like to cancel, press \"cancel\".")) {
+      usrPass();
+    } else {
+      alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+    }
+  }
+
+ password = availChar[Math.floor(Math.random() * usrLen.lenght)];
 }
 
 
@@ -144,39 +206,3 @@ let usrChoice = function() {
     alert("You\'ve chosen to cancel. Please refresh your page to restart.");
   }
 }*/
-
-// const variables {
-let uperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-let sepcials = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/'", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
-let password = [];
-let availChar = [];
-
-/*for (let upC = 0; upC < 26; upC++) {
-  for 
-}*/
-
-/*function randomPass(password) {
-  for(let i = 0; i<100; i++) {
-    let temp = password[i];
-    let randomize = Math.floor(Math.random() * 10) //or higher
-    password[i] = password[randomize];
-    password[randomize] = temp;
-  }
-}*/
-
-// let testPassword = createPassword();
-// randomPass(testPassword);
-
-// function createPassword() {
-  // let password =
-// }
-
-
-
-// passwordText
-
-// final = paswordText.value
-
-// let randPass = Math.floor(Math.random() * usrLen.lenght);
