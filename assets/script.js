@@ -19,7 +19,7 @@ generateBtn.addEventListener("click", windowPrompt);
 let uperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-let sepcials = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/'", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
+let specials = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/'", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 let password = [];
 let availChar = [];
 
@@ -73,47 +73,47 @@ let usrPass = function() {
   let usrSpec = window.confirm("Would you like special characters in your password?");
 
   if (usrUpC || usrLowC || usrNumb || usrSpec) {
-    if (usrUpC) {
-      availChar = [...uperCase];
-
-    } else if (usrUpC && usrLowC) {
-      availChar = [...uperCase, ...lowerCase];
+    if (usrUpC && usrLowC && usrNumb && usrSpec) {
+      availChar = [...uperCase, ...lowerCase, ...numbers, ...specials];
 
     } else if (usrUpC && usrLowC && usrNumb) {
       availChar = [...uperCase, ...lowerCase, ...numbers];
 
-    } else if (usrUpC && usrLowC && usrNumb && usrSpec) {
-      availChar = [...uperCase, ...lowerCase, ...numbers, ...sepcials];
+    } else if (usrUpC && usrNumb && usrSpec) {
+      availChar = [...uperCase, ...numbers, ...specials];
 
-    } else if (usrUpc && usrNumb && usrSpec) {
-      availChar = [...uperCase, ...numbers, ...sepcials];
+    } else if (usrLowC && usrNumb && usrSpec) {
+      availChar = [...lowerCase, ...numbers, ...specials];
+
+    } else if (usrUpC && usrLowC) {
+      availChar = [...uperCase, ...lowerCase];
 
     } else if (usrUpC && usrNumb) {
       availChar = [...uperCase, ...numbers];
 
     } else if (usrUpC && usrSpec) {
-      availChar = [...uperCase, ...sepcials];
-
-    } else if (usrLowC) {
-      availChar = [...lowerCase];
+      availChar = [...uperCase, ...specials];
 
     } else if (usrLowC && usrNumb) {
       availChar = [...lowerCase, ...numbers];
 
-    } else if (usrLowC && usrNumb && usrSpec) {
-      availChar = [...lowerCase, ...numbers, ...sepcials];
-
     } else if (usrLowC && usrSpec) {
-      availChar = [...lowerCase, ...sepcials];
+      availChar = [...lowerCase, ...specials];
+
+    } else if (usrNumb && usrSpec) {
+      availChar = [...numbers, ...specials];
+
+    } else if (usrUpC) {
+      availChar = [...uperCase];
+
+    } else if (usrLowC) {
+      availChar = [...lowerCase];
 
     } else if (usrNumb) {
       availChar = [...numbers];
 
-    } else if (usrNumb && usrSpec) {
-      availChar = [...numbers, ...sepcials];
-
     } else if (usrSpec) {
-      availChar = [...sepcials];
+      availChar = [...specials];
 
     }
   } else {
@@ -128,7 +128,12 @@ let usrPass = function() {
     }
   }
 
- password = availChar[Math.floor(Math.random() * usrLen.lenght)];
+  console.log(availChar);
+
+ //password = availChar[Math.floor(Math.random() * usrLen.lenght)];
+
+ 
+
 }
 
 
