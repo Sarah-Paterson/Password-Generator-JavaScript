@@ -20,49 +20,82 @@ let uperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
 let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let specials = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/'", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
-let password = [];
+let newPass = [];
 let availChar = [];
 
 // first pop up when clicking on generate password
 function windowPrompt() {
   if (confirm("Let's create a new password! Please answer a few prompts to set the parameters for your new password.")) {
-    lenSelect();
-  } else {
-    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
-  }
-}
-
-// password length selection
-function lenSelect() {
-  // how to store the user imput information for later??
-  let usrLen = parseInt(prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14"));
-  if (Number.isNaN(usrLen)) {
-    retryLen();
-  }
-
-  if (usrLen < 8 || usrLen > 128) {
-    retryLen();
-  }
-  
-  if (usrLen > 7 && usrLen < 129) {
-    // upCase();
+    // lenSelect();
     usrPass();
   } else {
-    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+    end();
   }
 }
 
-// if lenght selection is incorect
-function retryLen() {
-  if (confirm("Please select a whole number between 8 and 128. If you would like to cancel, press \"cancel\".")) {
-    lenSelect();
-  } else {
-    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
-  }
-}
+
+// // password length selection
+// function lenSelect() {
+//   // how to store the user imput information for later??
+//   let usrLen = parseInt(prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14"));
+//   if (Number.isNaN(usrLen)) {
+//     retryLen();
+//   }
+
+//   if (usrLen < 8 || usrLen > 128) {
+//     retryLen();
+//   }
+  
+//   if (usrLen > 7 && usrLen < 129) {
+//     // upCase();
+//     usrPass();
+//   } else {
+//
+//   }
+// }
+
+// // if lenght selection is incorect
+// function retryLen() {
+//   if (confirm("Please select a whole number between 8 and 128. If you would like to cancel, press \"cancel\".")) {
+//     lenSelect();
+//   } else {
+//     alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+//   }
+// }
 
 // user choicses and password creation in this function
 let usrPass = function() {
+  // user Length
+  let usrLen = parseInt(prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14"));
+
+  function testUsrLen() {
+    if (Number.isNaN(usrLen)) {
+      retryLen();
+    }
+    if (usrLen < 8 || usrLen > 128) {
+      retryLen();
+    }
+    if (usrLen > 7 && usrLen < 129) {
+      // upCase();
+      // usrPass();
+    } else {
+      end();
+    }
+  }
+
+  testUsrLen()
+
+  // if lenght selection is incorect
+  function retryLen() {
+    if (confirm("Please select a whole number between 8 and 128. If you would like to cancel, press \"cancel\".")) {
+      lenSelect();
+    } else {
+
+      end();
+    }
+  }
+
+  
   // uppercase
   let usrUpC = window.confirm("Would you like uppercase letters in your password?");
   // lowercase
@@ -124,90 +157,55 @@ let usrPass = function() {
     if (confirm("Please select \"okay\" to at least one of the prompts. Select \"okay\" to reselect. If you would like to cancel, press \"cancel\".")) {
       usrPass();
     } else {
-      alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+
+      end();
     }
   }
 
   console.log(availChar);
 
- //password = availChar[Math.floor(Math.random() * usrLen.lenght)];
-
+  // JavaScript Program to shuffle a given array 
+// A function to generate a random
+// permutation of availChar
+function randomize (availChar)
+{
  
+    // Start from the last element and swap
+    // one by one. We don't need to run for
+    // the first element that's why i > 0
+    for (let i = availChar.length - 1; i > 0; i--)
+    {
+     
+        // Pick a random index from 0 to i inclusive
+        let j = Math.floor(Math.random() * (i + 1));
+ 
+        // Swap availChar[i] with the element
+        // at random index
+        [availChar[i], availChar[j]] = [availChar[j], availChar[i]];
+    }
+}
+ 
+// Driver Code
+randomize (availChar);
+console.log(availChar);
+
+function slicePass() {
+  if(availChar >= usrLen) {
+    return availChar.slice(0, usrLen);
+  }
+  return[];
+}
+
+slicePass()
+console.log(newPass);
+ 
+// This code is contributed by rohitsingh07052.
+
 
 }
 
-
-// uppercase yes or no
-/*function upCase() {
-  let usrUpC;
-  if (confirm("Would you like uppercase letters in your password?")) {
-    usrUpC = true;
-    lowCase ();
-  } else {
-    usrUpC = false;
-    lowCase ();
-  }
-}*/
-
-// console.log(usrUpC);
-
-// lowercase yes or no
-/*function lowCase() {
-  let usrLowC;
-  if (confirm("Would you like lowercase letters in your password?")) {
-    usrLowC = true;
-    number();
-  } else {
-    usrLowC = false;
-    number();
-  }
-}*/
-
-// console.log(usrLowC);
-
-// numbers yes or no
-/*function number() {
-  let usrNumb;
-  if (confirm("Would you like numbers in your password?")) {
-    usrNumb = true;
-    specialC();
-  } else {
-    usrNumb = false;
-    specialC();
-  }
-}*/
-
-// console.log(Numb);
-
-// specials yes or no
-/*function specialC() {
-  let usrSpec;
-  if (confirm("Would you like special characters in your password?")) {
-    usrSpec = true;
-    needRetryC();
-  } else {
-    usrSpec = false;
-    needRetryC()
-  }
-}*/
-
-// console.log(specialC);
-
-// check if retry is needed after upper and lowercase
-/*function needRetryC() {
-  if (usrChoice.usrUpC || usrChoice.usrLowC || usrChoice.usrNumb || usrChoice.usrSpec) {
-    
-  } else {
-    retryC();
-  }
-}*/
-
-// ask to retry functions
-// why isn't this working??
-/*function retryC() {
-  if (confirm("Please select \"okay\" to at least one of the prompts. Select \"okay\" to reselect. If you would like to cancel, press \"cancel\".")) {
-    upCase();
-  } else {
-    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
-  }
-}*/
+function end(){
+  alert("You\'ve chosen to cancel. Please restart.");
+  location.reload();
+  return;
+}
