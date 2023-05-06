@@ -23,7 +23,7 @@ let specials = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-
 let newPass = [];
 let availChar = [];
 
-let usrLen;
+// let usrLen;
 
 // first pop up when clicking on generate password
 function windowPrompt() {
@@ -31,7 +31,8 @@ function windowPrompt() {
     // lenSelect();
     usrPass();
   } else {
-    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+    // alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+    end();
   }
 }
 
@@ -82,10 +83,11 @@ let usrPass = function() {
     
     if (usrLen > 7 && usrLen < 129) {
       // upCase();
-      usrPass();
+      // usrPass();
     } else {
-      alert("You\'ve chosen to cancel. Please refresh your page to restart.");
-      return;
+      // alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+      // return;
+      end();
     }
   }
   lenSelect(usrLen);
@@ -97,8 +99,9 @@ let usrPass = function() {
       // lenSelect();
       usrPass()
     } else {
-      alert("You\'ve chosen to cancel. Please refresh your page to restart.");
-      return;
+      // alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+      // return;
+      end();
     }
   }
 
@@ -165,7 +168,8 @@ let usrPass = function() {
     if (confirm("Please select \"okay\" to at least one of the prompts. Select \"okay\" to reselect. If you would like to cancel, press \"cancel\".")) {
       usrPass();
     } else {
-      alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+      // alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+      end();
     }
   }
 
@@ -212,6 +216,8 @@ console.log(newPass);
 
 function end() {
   alert("You\'ve chosen to cancel. Please restart.");
+  // return false;
+  window. confirm = function() { return false; }
+  window. alert = function() { return false; }
   location.reload();
-  return;
 }
