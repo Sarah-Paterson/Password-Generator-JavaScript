@@ -63,7 +63,7 @@ Though the way the webpage is viewed has not changed visually, the prompts gathe
 If the input is not expected, then an error message will appear. There are two represented below.
 
 ### Error messages
-![Error Message Length](images/Lenght-Prompt.png "Error Message Lenght Screenshot")
+![Error Message Length](images/error-lenght.png "Error Message Lenght Screenshot")
 ![Error Message Select](images/error-select.png "Error Message Select Screenshot")
 
 ---
