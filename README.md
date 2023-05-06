@@ -2,20 +2,20 @@
 
 ## Description
 
-In this project, I worked with existing code provided by Xandromus and The Coding Bootcamp on GitHub. I was motivated to refactor the existing code to create a more user friendly website that allows better universal accessibility through semantic elements and descriptions with images.
+In this project, I worked with existing code provided by The Coding Bootcamp on GitLab. I was motivated to add JavaScript to the existing code to give a user the ability to generate a random password.
 
-This website was created for the Horiseon team to share knowledge on Search Engine Optimization, Online Reputation Management, and Social Media Marketing. I refactored this website to optimize the user friendliness, update links, and add more organization to the code.
+This website was created for the purpose of giving the user a randomly generated password after a few simple questions. I updated this website to allow the buttons to work and for a password to be generated in the text box after the questions are answered.
 
-Through the process of refactoring this webpage, I was able to learn more about accessibility through semantic elements and how they can be used for the visually impaired. The alt elements for the images also help with visually impaired accessibility. I also learned that the semantic elements and text descriptions can also help with search engine optimization.
+Through the process of coding the password generator in JavaScript, I was able to learn more about arrays, functions, variables, and for loops. I also learned more about how to link the JavScript to interact with the HTML file. I was challenged to create variables that could be reused in functions and form arrays from existing arrays with for loops. Google and all the sources it provided were my best friends through this challenge.
 
-[Here is a link to the webpage](https://sarah-paterson.github.io/Horiseon-Refactor/)
+Though I know it has much room for improvement, [here is a link to the webpage](https://sarah-paterson.github.io/Horiseon-Refactor/). My desire would be to come back to this particular web page and update the JavaScript so that the code works much more effectively.
 
 ---
 ---
 
 ## Table of Contents
 
-- [Code Modification](#code-modification)
+- [Starting Code](#starting-code)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
@@ -23,39 +23,55 @@ Through the process of refactoring this webpage, I was able to learn more about 
 ---
 ---
 
-## Code Modification
+## Starting Code
 
-The key to this project was to refactor the code without changing the website display. To illustrate some of the modifications I made, I created this section to share a few examples. Below is a comparison between the header in the starting code and the header in my refactored code.
-    
-Starting HTML Code - **Header**
-![Starting HTML Code Screenshot](assets/images/Starting%20HTML%20Code.png "Starting HTML Screenshot")
-New HTML Code - **Header**
-![New HTML Code Screenshot](assets/images/NEW%20HTML%20code.png "New HTML Screenshot")
-Starting CSS Code - **Header**
-![Starting CSS Code Screenshot](assets/images/Starting%20CSS%20Code.png "Starting CSS Screenshot")
-New CSS Code - **Header**
-![New CSS Code Screenshot](assets/images/NEW%20CSS%20code.png "New CSS Screenshot")
+The key to this project was to add JavaScript functionality to the existing HTML and CSS. Below is the image of the file as just HTML and CSS. As you can see visually, there are interactive parts to the code that have no function without JavaScript. With the new JavaScript, the **generate password** button will have an action once clicked, and a text box to present the new password in.
+
+![Password Generator Starting Page](images/ "Starting page for Password Generator Screenshott")
 
 ---
 
 ## Usage
 
-The final website for Horiseon is a simple landing page that presents information. The navigation bar at the top of the page provides quick access to the information displayed further down on the same page.
+The final website for the Password Generator should be used to create a new password. With the prompts, a new password can be generated. 
 
--Screenshot of the webpage below-
-
+### Welcome Prompt
 ![Webpage Screenshot](assets/images/Horiseon%20Webpage.png "Webpage Screenshot")
 
-Though the way the webpage is viewed has not changed from refactoring the code, the top links work correctly, and the code is more organized.
+### Password Length Prompt
+*Currently there is an error to be resolved. At present, the final password length will be short one value. If a value between 8-16 is chosen, it will be presented in 7-15 characters. Passwords above 17 will be shortened greatly and may not be generated.*
+
+### Add Uppercase
+
+### Add Lowercase
+
+### Add Numbers
+
+### Add Special Characters
+
+Though the way the webpage is viewed has not changed visually, the prompts gather the information needed to create a randomized password. The final password will be generated in the text box based on the fields chosen. 
+*Currently there is an error to be resolved. At present, the only option working is all options.*
+
+### Final Password - All Options
+
+If the input is not expected, then an error message will appear. There are two represented below.
+
+### Error message
 
 ---
 
 ## Credits
-Starter code from this repository via Xandromus: https://github.com/coding-boot-camp/urban-octo-telegram
+Starter code from this gitLab repository: https://git.bootcampcontent.com/University-of-Denver/DU-VIRT-FSF-PT-04-2023-U-LOLC/-/tree/main/03-JavaScript/02-Challenge
 
-Accessed through The Coding Bootcamp repositories for Boot Camp Curriculum Lesson Plans: https://github.com/coding-boot-camp
+The Coding Bootcamp repositories for Boot Camp Curriculum Lesson Plans: https://github.com/coding-boot-camp
 
-A helpful resource I used for Semantic Elements was W3 School’s article on semantic elements: https://www.w3schools.com/html/html5_semantic_elements.asp
+Shuffling JavaScript code provided by rohitsingh07052 via the website geeksforgeeks.org : https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
+
+Helpful Resources:
+W3 School’s information about JavaScript: https://www.w3schools.com/js/default.asp
+Stack Overflow’s answered questions about JavaScript: https://stackoverflow.com/
+MDN’s information on JavaScript: https://developer.mozilla.org/en-US/
+Google.com helping me find the above resources
 
 The README template I used was provided by The Full-Stack Blog: https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
@@ -63,4 +79,5 @@ The README template I used was provided by The Full-Stack Blog: https://coding-b
 
 ## License
 MIT Licence
+
 
