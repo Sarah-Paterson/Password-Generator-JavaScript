@@ -1,15 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", windowPrompt);
 
@@ -18,12 +9,10 @@ generateBtn.addEventListener("click", windowPrompt);
 // array of options for the passsword and empty arrays for password
 let uperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let specials = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", "-", ".", "/'", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 let password = [];
 let availChar = [];
-
-// let usrLen;
 
 // first pop up when clicking on generate password
 function windowPrompt() {
@@ -35,38 +24,6 @@ function windowPrompt() {
     end();
   }
 }
-
-// password length selection
-// function lenSelect() {
-//   usrLen = parseInt(prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14"));
-//   if (Number.isNaN(usrLen)) {
-//     retryLen();
-//   }
-
-//   if (usrLen < 8 || usrLen > 128) {
-//     retryLen();
-//   }
-  
-//   if (usrLen > 7 && usrLen < 129) {
-//     // upCase();
-//     usrPass();
-//   } else {
-//     alert("You\'ve chosen to cancel. Please refresh your page to restart.");
-//   }
-
-//   console.log(usrLen);
-// }
-
-// console.log(usrLen);
-
-// // if lenght selection is incorect
-// function retryLen() {
-//   if (confirm("Please select a whole number between 8 and 128. If you would like to cancel, press \"cancel\".")) {
-//     lenSelect();
-//   } else {
-//     alert("You\'ve chosen to cancel. Please refresh your page to restart.");
-//   }
-// }
 
 // user choicses and password creation in this function
 let usrPass = function() {
@@ -176,10 +133,10 @@ let usrPass = function() {
   console.log(availChar);
 
   // JavaScript Program to shuffle a given array 
-// A function to generate a random
-// permutation of availChar
-function randomize (availChar)
-{
+  // A function to generate a random
+  // permutation of availChar
+  function randomize (availChar)
+  {
  
     // Start from the last element and swap
     // one by one. We don't need to run for
@@ -194,44 +151,43 @@ function randomize (availChar)
         // at random index
         [availChar[i], availChar[j]] = [availChar[j], availChar[i]];
     }
-}
+  }
  
-// Driver Code
-randomize (availChar);
-console.log(availChar);
+  // Driver Code
+  randomize (availChar);
+  console.log(availChar);
 
-//This code above is contributed by rohitsingh07052.
-
-// for(var i = arr.length; i >= 0; i--) {
-//   if(arr[i] == cls) {
-//       alert(arr[i - 1]);
-//       var splCout = arr.splice(arr[i - 1], 1);
-//       alert(splCout);
-//   }
-// }
-
-for(let i=0; i < usrLen; i++) {
-  password = availChar.splice(1, i);
-}
+  //This code above is contributed by rohitsingh07052.
 
 
-// Write password to the #password input
-function writePassword() {
-  // var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  for(let i=0; i < usrLen; i++) {
+    password = availChar.splice(1, i);
+  }
 
-  passwordText.value = password.join("");
 
-}
+  // Write password to the #password input
+  function writePassword() {
+    // var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-writePassword();
+    passwordText.value = password.join("");
+
+  }
+
+  writePassword();
+
+  // writePassword provided by course
+
+  console.log(password);
  
 }
 
+// end function
 function end() {
   alert("You\'ve chosen to cancel. Please restart.");
-  // return false;
   window. confirm = function() { return false; }
   window. alert = function() { return false; }
   location.reload();
 }
+
+// I'm using a for loop to create a new array (with splice) the length of "usrLen." I have two questions, first is that if usrLen is 14, the length of the array is 13 characters. Is there a way to fix that? My second question is that I cannot seem to do more than 16 (making 15 characters) before it is worse. at 17 usrLen, it outputs 11 characters. What did I do wrong?
