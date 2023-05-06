@@ -26,76 +26,43 @@ let availChar = [];
 // first pop up when clicking on generate password
 function windowPrompt() {
   if (confirm("Let's create a new password! Please answer a few prompts to set the parameters for your new password.")) {
-    // lenSelect();
-    usrPass();
+    lenSelect();
   } else {
-    end();
+    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
   }
 }
 
+// password length selection
+function lenSelect() {
+  // how to store the user imput information for later??
+  let usrLen = parseInt(prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14"));
+  if (Number.isNaN(usrLen)) {
+    retryLen();
+  }
 
-// // password length selection
-// function lenSelect() {
-//   // how to store the user imput information for later??
-//   let usrLen = parseInt(prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14"));
-//   if (Number.isNaN(usrLen)) {
-//     retryLen();
-//   }
-
-//   if (usrLen < 8 || usrLen > 128) {
-//     retryLen();
-//   }
+  if (usrLen < 8 || usrLen > 128) {
+    retryLen();
+  }
   
-//   if (usrLen > 7 && usrLen < 129) {
-//     // upCase();
-//     usrPass();
-//   } else {
-//
-//   }
-// }
+  if (usrLen > 7 && usrLen < 129) {
+    // upCase();
+    usrPass();
+  } else {
+    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+  }
+}
 
-// // if lenght selection is incorect
-// function retryLen() {
-//   if (confirm("Please select a whole number between 8 and 128. If you would like to cancel, press \"cancel\".")) {
-//     lenSelect();
-//   } else {
-//     alert("You\'ve chosen to cancel. Please refresh your page to restart.");
-//   }
-// }
+// if lenght selection is incorect
+function retryLen() {
+  if (confirm("Please select a whole number between 8 and 128. If you would like to cancel, press \"cancel\".")) {
+    lenSelect();
+  } else {
+    alert("You\'ve chosen to cancel. Please refresh your page to restart.");
+  }
+}
 
 // user choicses and password creation in this function
 let usrPass = function() {
-  // user Length
-  let usrLen = parseInt(prompt("Please enter how many characters your new password will have. Please write a whole number between 8 and 128.", "14"));
-
-  function testUsrLen() {
-    if (Number.isNaN(usrLen)) {
-      retryLen();
-    }
-    if (usrLen < 8 || usrLen > 128) {
-      retryLen();
-    }
-    if (usrLen > 7 && usrLen < 129) {
-      // upCase();
-      // usrPass();
-    } else {
-      end();
-    }
-  }
-
-  testUsrLen()
-
-  // if lenght selection is incorect
-  function retryLen() {
-    if (confirm("Please select a whole number between 8 and 128. If you would like to cancel, press \"cancel\".")) {
-      lenSelect();
-    } else {
-
-      end();
-    }
-  }
-
-  
   // uppercase
   let usrUpC = window.confirm("Would you like uppercase letters in your password?");
   // lowercase
@@ -157,8 +124,7 @@ let usrPass = function() {
     if (confirm("Please select \"okay\" to at least one of the prompts. Select \"okay\" to reselect. If you would like to cancel, press \"cancel\".")) {
       usrPass();
     } else {
-
-      end();
+      alert("You\'ve chosen to cancel. Please refresh your page to restart.");
     }
   }
 
@@ -188,24 +154,17 @@ function randomize (availChar)
 // Driver Code
 randomize (availChar);
 console.log(availChar);
-
-function slicePass() {
-  if(availChar >= usrLen) {
-    return availChar.slice(0, usrLen);
-  }
-  return[];
-}
-
-slicePass()
-console.log(newPass);
- 
 // This code is contributed by rohitsingh07052.
 
+// function slicePass() {
+//   if(availChar >= usrLen) {
+//     return availChar.slice(0, usrLen);
+//   }
+//   return[];
+// }
 
-}
+// slicePass()
+// console.log(newPass);
+ 
 
-function end(){
-  alert("You\'ve chosen to cancel. Please restart.");
-  location.reload();
-  return;
 }
