@@ -48,7 +48,6 @@ let usrPass = function() {
     }
   }
   lenSelect(usrLen);
-  console.log(usrLen);
   
   // if lenght selection is incorect
   function retryLen() {
@@ -130,7 +129,6 @@ let usrPass = function() {
     }
   }
 
-  console.log(availChar);
 
   // JavaScript Program to shuffle a given array 
   // A function to generate a random
@@ -141,7 +139,7 @@ let usrPass = function() {
     // Start from the last element and swap
     // one by one. We don't need to run for
     // the first element that's why i > 0
-    for (let i = availChar.length - 1; i > 0; i--)
+    for (let i = availChar.length; i > 0; i--)
     {
      
         // Pick a random index from 0 to i inclusive
@@ -155,7 +153,6 @@ let usrPass = function() {
  
   // Driver Code
   randomize (availChar);
-  console.log(availChar);
 
   //This code above is contributed by rohitsingh07052.
 
@@ -163,7 +160,6 @@ let usrPass = function() {
   for(let i=0; i < usrLen; i++) {
     password = availChar.splice(1, i);
   }
-
 
   // Write password to the #password input
   function writePassword() {
@@ -177,8 +173,6 @@ let usrPass = function() {
   writePassword();
 
   // writePassword provided by course
-
-  console.log(password);
  
 }
 
@@ -189,5 +183,3 @@ function end() {
   window. alert = function() { return false; }
   location.reload();
 }
-
-// I'm using a for loop to create a new array (with splice) the length of "usrLen." I have two questions, first is that if usrLen is 14, the length of the array is 13 characters. Is there a way to fix that? My second question is that I cannot seem to do more than 16 (making 15 characters) before it is worse. at 17 usrLen, it outputs 11 characters. What did I do wrong?
